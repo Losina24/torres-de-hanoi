@@ -36,42 +36,22 @@ namespace Torres_de_Hanoi
         public int iterativo(int n, Pila ini, Pila fin, Pila aux)
         {
             int m = 0;
-            Console.WriteLine("Top Inicio: " + ini.Top);
-            Console.WriteLine("Top Final: " + fin.Top);
-            Console.WriteLine("Top Auxiliar: " + aux.Top);
-            Console.WriteLine("Tamaño Fin: " + fin.Size);
-            Console.WriteLine("n: " + n + "\n\n");
             if (n%2 != 0) {
                 while(fin.Size != n) {
                     mover_disco(ini, fin);
                     m++;
-                    Console.WriteLine("Moviendo Inicio y Fin...\nTop Inicio: " + ini.Top);
-                    Console.WriteLine("Top Final: " + fin.Top);
-                    Console.WriteLine("Top Auxiliar: " + aux.Top);
-                    Console.WriteLine("Tamaño Fin: " + fin.Size);
-                    Console.WriteLine("m: " + m + "\n\n");
                     if(fin.Size == n){
                         break;
                     }
 
                     mover_disco(ini, aux);
                     m++;
-                    Console.WriteLine("Moviendo Inicio y Auxiliar...\nTop Inicio: " + ini.Top);
-                    Console.WriteLine("Top Final: " + fin.Top);
-                    Console.WriteLine("Top Auxiliar: " + aux.Top);
-                    Console.WriteLine("Tamaño Fin: " + fin.Size);
-                    Console.WriteLine("m: " + m + "\n\n");
                     if(fin.Size == n){
                         break;
                     }
 
                     mover_disco(aux, fin);
                     m++;
-                    Console.WriteLine("Moviendo Auxiliar y Fin...\nTop Inicio: " + ini.Top);
-                    Console.WriteLine("Top Final: " + fin.Top);
-                    Console.WriteLine("Top Auxiliar: " + aux.Top);
-                    Console.WriteLine("Tamaño Fin: " + fin.Size);
-                    Console.WriteLine("m: " + m + "\n\n");
                     if(fin.Size == n){
                         break;
                     }
@@ -82,39 +62,44 @@ namespace Torres_de_Hanoi
                 while(fin.Size != n) {
                     mover_disco(ini, aux);
                     m++;
-                    Console.WriteLine("Moviendo Inicio y Auxiliar...\nTop Inicio: " + ini.Top);
-                    Console.WriteLine("Top Final: " + fin.Top);
-                    Console.WriteLine("Top Auxiliar: " + aux.Top);
-                    Console.WriteLine("Tamaño Fin: " + fin.Size);
-                    Console.WriteLine("m: " + m + "\n\n");
                     if(fin.Size == n){
                         break;
                     }
 
                     mover_disco(ini, fin);
                     m++;
-                    Console.WriteLine("Moviendo Inicio y Fin...\nTop Inicio: " + ini.Top);
-                    Console.WriteLine("Top Final: " + fin.Top);
-                    Console.WriteLine("Top Auxiliar: " + aux.Top);
-                    Console.WriteLine("Tamaño Fin: " + fin.Size);
-                    Console.WriteLine("m: " + m + "\n\n");
                     if(fin.Size == n){
                         break;
                     }
 
                     mover_disco(aux, fin);
                     m++;
-                    Console.WriteLine("Moviendo Auxiliar y Fin...\nTop Inicio: " + ini.Top);
-                    Console.WriteLine("Top Final: " + fin.Top);
-                    Console.WriteLine("Top Auxiliar: " + aux.Top);
-                    Console.WriteLine("Tamaño Fin: " + fin.Size);
-                    Console.WriteLine("m: " + m + "\n\n");
                     if(fin.Size == n){
                         break;
                     }
                 }
             }
 
+            return m;
+        }
+
+        public int recursivo(int n, Pila ini, Pila fin, Pila aux)
+        {
+            int m = 0;
+            if(n == 1){
+                mover_disco(ini, fin);
+                m++;
+            } else {
+                m += recursivo(n-1, ini, aux, fin);
+                mover_disco(ini, fin);
+                m++;
+                m += recursivo(n-1, aux, fin, ini);
+            }
+            Console.WriteLine("Moviendo Inicio y Fin...\nTop Inicio: " + ini.Top);
+                    Console.WriteLine("Top Final: " + fin.Top);
+                    Console.WriteLine("Top Auxiliar: " + aux.Top);
+                    Console.WriteLine("Tamaño Fin: " + fin.Size);
+                    Console.WriteLine("m: " + m + "\n\n");
             return m;
         }
 

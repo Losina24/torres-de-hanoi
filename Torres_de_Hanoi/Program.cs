@@ -55,7 +55,9 @@ namespace Torres_de_Hanoi
             pilaA.push(disco1);
 
             Hanoi hanoi = new Hanoi();
-            hanoi.iterativo(3, pilaA, pilaB, pilaC);
+            hanoi.recursivo(3, pilaA, pilaB, pilaC);
+
+            Console.WriteLine(pilaB.Size);
 
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
