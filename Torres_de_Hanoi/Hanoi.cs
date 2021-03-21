@@ -95,11 +95,6 @@ namespace Torres_de_Hanoi
                 m++;
                 m += recursivo(n-1, aux, fin, ini);
             }
-            Console.WriteLine("Moviendo Inicio y Fin...\nTop Inicio: " + ini.Top);
-                    Console.WriteLine("Top Final: " + fin.Top);
-                    Console.WriteLine("Top Auxiliar: " + aux.Top);
-                    Console.WriteLine("Tamaño Fin: " + fin.Size);
-                    Console.WriteLine("m: " + m + "\n\n");
             return m;
         }
 
