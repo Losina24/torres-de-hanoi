@@ -30,11 +30,19 @@ namespace Torres_de_Hanoi
 
         public Disco pop()
         {
-            Size = Size-1;
-            Disco discoEliminado = Elementos[Size];
-            Elementos.RemoveAt(Size);
-            Top = Elementos[Size-1].Valor;
-            return discoEliminado;
+            if(Size > 0) {
+                Size = Size-1;
+                Disco discoEliminado = Elementos[Size];
+                Elementos.RemoveAt(Size);
+                if(Size > 0){
+                    Top = Elementos[Size-1].Valor;
+                } else {
+                    Top = 0;
+                }
+                return discoEliminado;
+            }
+
+            return null;
         }                
 
         public bool isEmpty()

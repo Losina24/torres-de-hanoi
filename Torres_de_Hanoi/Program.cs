@@ -48,20 +48,14 @@ namespace Torres_de_Hanoi
             Disco disco3 = new Disco(3);
             Pila pilaA = new Pila();
             Pila pilaB = new Pila();
+            Pila pilaC = new Pila();
+
+            pilaA.push(disco3);
             pilaA.push(disco2);
             pilaA.push(disco1);
-            pilaB.push(disco3);
+
             Hanoi hanoi = new Hanoi();
-
-            // Probando clase Hanoi
-            Console.WriteLine("Top de la PilaA (1): " + pilaA.Top);
-            Console.WriteLine("Top de la PilaB (3): " + pilaB.Top);
-
-            hanoi.mover_disco(pilaA, pilaB);
-
-            Console.WriteLine("Muevo los discos...");
-            Console.WriteLine("Top de la PilaA (2): " + pilaA.Top);
-            Console.WriteLine("Top de la PilaB (1): " + pilaB.Top + "\n");
+            hanoi.iterativo(3, pilaA, pilaB, pilaC);
 
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
