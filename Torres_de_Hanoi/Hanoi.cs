@@ -8,9 +8,18 @@ namespace Torres_de_Hanoi
 {
     class Hanoi
     {
-        /*TODO: Implementar métodos*/
+        public Hanoi(){
+        }
+
         public void mover_disco(Pila a, Pila b)
         {
+            if (a.Top > b.Top) {
+                Disco discoMovible = b.pop();
+                a.push(discoMovible);
+            } else {
+                Disco discoMovible = a.pop();
+                b.push(discoMovible);
+            }
 
         }
 
